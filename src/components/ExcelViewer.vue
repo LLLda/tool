@@ -68,7 +68,7 @@ const loadData = async () => {
 
   for (const file of excelFiles) {
     try {
-      const res = await fetch(`/public/${file}`);
+      const res = await fetch(`./${file}`);
       const arrayBuffer = await res.arrayBuffer();
       const workbook = XLSX.read(arrayBuffer, { type: 'array' });
       const { products, data } = processSheet(workbook.Sheets[workbook.SheetNames[0]]);
